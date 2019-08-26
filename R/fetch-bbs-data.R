@@ -43,13 +43,6 @@ fetch_bbs_data <- function(level = "state", quiet = FALSE, force = FALSE)
 
   cat(terms)
 
-  agree <- readline(prompt = "Type \"yes\" (without quotes) to agree: ")
-
-  if (agree != "yes")
-  {
-    return(NULL)
-  }
-
   bbs_dir <- app_dir(appname = "bbsBayes")
 
   if (isFALSE(file.exists(bbs_dir$data())))
