@@ -27,21 +27,13 @@
 #' @export
 #'
 #'
-fetch_bbs_data <- function(level = "state", quiet = FALSE, force = FALSE)
+fetch_bbs_data <- function(level = "state", quiet = FALSE, force = TRUE)
 {
   if (!level %in% c('state', 'stop')) {
     stop("Invalid level argument: level must be one of 'state' or 'stop'.")
   }
 
   stopifnot(is.logical(quiet))
-
-  # Print Terms of Use
-  terms <- readChar(system.file("data-terms",
-                                package = "bbsBayes"),
-                    file.info(system.file("data-terms",
-                                          package = "bbsBayes"))$size)
-
-  cat(terms)
 
   bbs_dir <- app_dir(appname = "bbsBayes")
 
